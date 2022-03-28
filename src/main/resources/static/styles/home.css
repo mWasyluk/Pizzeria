@@ -1,0 +1,41 @@
+@font-face {
+    font-family: Engine;
+    src: url('/fonts/Engine-Regular.otf');
+}
+
+body {
+    background-image: url('/images/pizzaparty.gif');
+    background-color: #aab8d1ff
+}
+
+.logo-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 100px;
+    margin: 10px auto 20px;
+    display: block;
+    background-color: #28218f;
+    box-shadow: 0px 5px 25px black;
+}
+
+.headline {
+    width: fit-content;
+    padding: 20px 30px;
+    color: white;
+    box-shadow: 0px 5px 25px black;
+    text-shadow: 0px 5px 25px black;
+    border-radius: 20px;
+    background-color: #28218f;
+    font-family: 'Engine';
+    margin-left: auto;
+      margin-right: auto;
+    margin-bottom: 0;
+}
+
+.main-headline {
+    font-size: 64px;
+}
+
+.co-main-headline {
+    font-size: 32px;
+}

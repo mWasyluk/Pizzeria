@@ -4,12 +4,13 @@
 
 <head>
     <meta charset="UTF-8">
+    <link th:href="@{/styles/home.css}" rel="stylesheet" />
     <title>G&M Pizza</title>
 </head>
-<body>
-    <h1>Witaj w G&M Pizza!</h1>
-    <h2>Tutaj stworzysz pizze jaką kochasz - sam zdecyduj co dziś zjesz. </h2>
-    <img th:src="@{/images/pizza.png}" width="200" height="200"/>
+<body class="bg-image">
+    <img class="logo-img" th:src="@{/images/pizza.png}"/>
+    <h1 class="headline main-headline">Witaj w G&M Pizza!</h1>
+    <h2 class="headline co-main-headline">Tutaj stworzysz pizze jaką kochasz - sam zdecyduj co dziś zjesz. </h2>
 
 
 </body>
