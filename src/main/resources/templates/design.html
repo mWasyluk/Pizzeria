@@ -18,105 +18,88 @@
         <div class="col-md-9">
             <h2 class="headline main-headline">Z czego będzie się składała twoja pizza?</h2>
         </div>
-
-    </div>
-</div>
-<h4 class="headline full-width-headline">Na początek wybierz podstawowe składniki: </h4>
-
-<div class="container">
-
-    <div class="row justify-content-center align-items-center">
-
-        <div class="col col-sm-6 col-md-4 selection-box">
-
-            <h6 class="box-headline">Ciasto:</h6>
-            <div th:each="ingredient : ${PIE}">
-
-                <input type="radio" name="pie" th:value="${ingredient.id}">
-                <span th:text="${ingredient.name}">CIASTO</span>
-
-            </div>
-
-        </div>
-
-        <div class="col-sm-6 col-md-4 selection-box">
-
-            <h6 class="box-headline">Rozmiar:</h6>
-            <div th:each="ingredient : ${SIZE}">
-
-                <input type="radio" name="size" th:value="${ingredient.id}">
-                <span th:text="${ingredient.name}">ROZMIAR</span>
-
-            </div>
-
-        </div>
-
-        <div class="col-sm-6 col-md-4 selection-box">
-
-            <h6 class="box-headline">Sos podstawowy:</h6>
-            <div th:each="ingredient : ${SAUCE}">
-
-                <input type="radio" name="sauce" th:value="${ingredient.id}">
-                <span th:text="${ingredient.name}">ROZMIAR</span>
-
-            </div>
-        </div>
     </div>
 </div>
 
-<h4 class="headline full-width-headline">A teraz zdecyduj na jakie dodatki masz ochotę: </h4>
+<form>
+    <h4 class="headline full-width-headline">Na początek wybierz podstawowe składniki: </h4>
 
-<div class="container">
-    <div class="row justify-content-center align-items-center">
-
-        <div class="col-sm-6 col-md-4 selection-box">
-
-            <h6 class="box-headline">Sery:</h6>
-            <div th:each="ingredient : ${CHEESE}">
-
-                <input type="checkbox" name="cheese" th:value="${ingredient.id}">
-                <span th:text="${ingredient.name}">SER</span>
-
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col col-sm-6 col-md-4 selection-box">
+                <h6 class="box-headline">Ciasto:</h6>
+                <div th:each="ingredient : ${PIE}">
+                    <input type="radio" name="pie" th:value="${ingredient.id}">
+                    <span th:text="${ingredient.name}">CIASTO</span>
+                </div>
             </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4 selection-box">
-
-            <h6 class="box-headline">Mięso:</h6>
-            <div th:each="ingredient : ${MEAT}">
-
-                <input type="checkbox" name="meat" th:value="${ingredient.id}">
-                <span th:text="${ingredient.name}">MIĘSO</span>
-
+            <div class="col-sm-6 col-md-4 selection-box">
+                <h6 class="box-headline">Rozmiar:</h6>
+                <div th:each="ingredient : ${SIZE}">
+                    <input type="radio" name="size" th:value="${ingredient.id}">
+                    <span th:text="${ingredient.name}">ROZMIAR</span>
+                </div>
             </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4 selection-box">
-
-            <h6 class="box-headline">Warzywa:</h6>
-            <div th:each="ingredient : ${VEGGIE}">
-
-                <input type="checkbox" name="veggie" th:value="${ingredient.id}">
-                <span th:text="${ingredient.name}">WARZYWA</span>
-
+            <div class="col-sm-6 col-md-4 selection-box">
+                <h6 class="box-headline">Sos podstawowy:</h6>
+                <div th:each="ingredient : ${SAUCE}">
+                    <input type="radio" name="sauce" th:value="${ingredient.id}">
+                    <span th:text="${ingredient.name}">ROZMIAR</span>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="row justify-content-center align-items-center">
-        <div class="col selection-box">
+    <h4 class="headline full-width-headline">A teraz zdecyduj na jakie dodatki masz ochotę: </h4>
 
-            <h6 class="box-headline">Może jakieś dodatkowe sosy?</h6>
-            <div th:each="ingredient : ${SAUCE}">
-
-                <input type="checkbox" name="sauce2" th:value="${ingredient.id}">
-                <span th:text="${ingredient.name}">SOSY</span>
-
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-sm-6 col-md-4 selection-box">
+                <h6 class="box-headline">Sery:</h6>
+                <div th:each="ingredient : ${CHEESE}">
+                    <input type="checkbox" name="cheese" th:value="${ingredient.id}">
+                    <span th:text="${ingredient.name}">SER</span>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 selection-box">
+                <h6 class="box-headline">Mięso:</h6>
+                <div th:each="ingredient : ${MEAT}">
+                    <input type="checkbox" name="meat" th:value="${ingredient.id}">
+                    <span th:text="${ingredient.name}">MIĘSO</span>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 selection-box">
+                <h6 class="box-headline">Warzywa:</h6>
+                <div th:each="ingredient : ${VEGGIE}">
+                    <input type="checkbox" name="veggie" th:value="${ingredient.id}">
+                    <span th:text="${ingredient.name}">WARZYWA</span>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-xs-10 col-md-8 selection-box">
+                <h6 class="box-headline">Może jakieś dodatkowe sosy?</h6>
+                <div th:each="ingredient : ${SAUCE}">
+                    <input type="checkbox" name="sauce2" th:value="${ingredient.id}">
+                    <span th:text="${ingredient.name}">SOSY</span>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <h4 class="headline full-width-headline">Zostało już tylko nazwać twoją wypasioną pizzę i przesłać zamówienie: </h4>
+
+    <div class="conatiner">
+        <div class="row justify-content-center align-items-center name-section">
+            <div class="col-md-6  input-text" >
+                <input class="form-control" type="text" placeholder="Moja ulubiona pizzunia">
+            </div>
+            <div class="col-md-6 confirm-button">
+                <button type="button" class="btn btn-light">Prześlij zamówienie!</button>
+            </div>
+        </div>
+    </div>
+</form>
 
 </body>
-
 </html>
