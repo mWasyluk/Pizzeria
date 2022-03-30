@@ -21,7 +21,7 @@
     </div>
 </div>
 
-<form>
+<form method="POST" th:action="@{/orders}" th:object="${order}">
     <h4 class="headline full-width-headline">Na początek wybierz podstawowe składniki: </h4>
 
     <div class="container">
@@ -94,8 +94,8 @@
             <div class="col-md-6  input-text" >
                 <input class="form-control" type="text" placeholder="Moja ulubiona pizzunia">
             </div>
-            <div class="col-md-6 confirm-button">
-                <button type="button" class="btn btn-light">Prześlij zamówienie!</button>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-light confirm-button">Złóż zamówienie!</button>
             </div>
         </div>
     </div>
