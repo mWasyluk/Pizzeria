@@ -87,9 +87,9 @@ body {
 
 .input-text, .confirm-button {
     width: 100%;
-    margin: 10px 0 10px 0;
 }
 
 .invalid-data{
     color: #ff783e;
+    margin-bottom: 0;
 }
