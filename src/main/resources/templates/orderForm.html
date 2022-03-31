@@ -24,22 +24,30 @@
     <h4 class="headline full-width-headline">Najpierw wprowadź adres do wysyłki: </h4>
 
     <div class="details-box">
-        <div class="form-row">
+        <div class="row">
             <div class="offset-sm-1 col-sm-10 mb-3">
                 <input type="text" th:field="*{name}" class="form-control" placeholder="Imię i nazwisko">
+                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid-data">
+                    ERROR OCCURS</p>
             </div>
         </div>
         <div class="row">
             <div class="offset-sm-1 col-sm-10 mb-3">
-                <input type="text" th:field="*{street}" class="form-control" placeholder="Ulica">
+                <input type="text" th:field="*{street}" class="form-control" placeholder="Ulica i numer domu">
+                <p th:if="${#fields.hasErrors('street')}" th:errors="*{street}" class="invalid-data">
+                    ERROR OCCURS</p>
             </div>
         </div>
         <div class="row">
             <div class="offset-sm-1 col-sm-7 mb-3 mb-sm-0">
                 <input type="text" th:field="*{city}" class="form-control" placeholder="Miejscowość" >
+                <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="invalid-data">
+                    ERROR OCCURS</p>
             </div>
             <div class="col-sm-3">
                 <input type="text" th:field="*{zipCode}" class="form-control"  placeholder="Kod pocztowy" >
+                <p th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}" class="invalid-data">
+                    ERROR OCCURS</p>
             </div>
         </div>
     </div>
@@ -50,14 +58,20 @@
         <div class="row">
             <div class="offset-sm-1 col-sm-10 mb-3">
                 <input type="text" th:field="*{ccNumber}" class="form-control" placeholder="Numer karty">
+                <p th:if="${#fields.hasErrors('ccNumber')}" th:errors="*{ccNumber}" class="invalid-data">
+                    ERROR OCCURS</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-5 offset-sm-1 col-sm-4 ">
-                <input type="text" th:field="*{ccExpiration}" class="form-control" placeholder="Data ważności" >
+            <div class="col-6 offset-sm-1 col-sm-5 offset-md-1 col-md-4">
+                <input type="text" th:field="*{ccExpiration}" class="form-control" placeholder="Data ważności (MM/RR)" >
+                <p th:if="${#fields.hasErrors('ccExpiration')}" th:errors="*{ccExpiration}" class="invalid-data">
+                    ERROR OCCURS</p>
             </div>
-            <div class="offset-3 col-4 offset-sm-2 col-sm-4">
+            <div class="offset-1 col-5 offset-sm-1 col-sm-4 offset-md-2 col-md-4">
                 <input type="text" th:field="*{ccCVV}" class="form-control"  placeholder="Kod CVV" >
+                <p th:if="${#fields.hasErrors('ccCVV')}" th:errors="*{ccCVV}" class="invalid-data">
+                    ERROR OCCURS</p>
             </div>
         </div>
     </div>
