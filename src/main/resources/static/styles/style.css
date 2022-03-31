@@ -52,6 +52,18 @@ body {
     border-radius: 20px;
 }
 
+.details-box {
+    background-color: #28218f;
+    text-align: center;
+    margin: 20px auto 20px auto;
+    padding: 15px 30px 15px 30px;
+    font-family: 'Engine';
+    box-shadow: 0px 5px 15px black;
+    text-shadow: 0px 5px 5px black;
+    border-radius: 20px;
+    width: 80%;
+}
+
 .box-headline {
     font-size: 24px;
 }
