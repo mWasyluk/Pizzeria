@@ -26,20 +26,20 @@
     <div class="details-box">
         <div class="form-row">
             <div class="offset-sm-1 col-sm-10 mb-3">
-                <input type="text" class="form-control" placeholder="Imię i nazwisko">
+                <input type="text" th:field="*{name}" class="form-control" placeholder="Imię i nazwisko">
             </div>
         </div>
         <div class="row">
             <div class="offset-sm-1 col-sm-10 mb-3">
-                <input type="text" class="form-control" placeholder="Ulica">
+                <input type="text" th:field="*{street}" class="form-control" placeholder="Ulica">
             </div>
         </div>
         <div class="row">
             <div class="offset-sm-1 col-sm-7 mb-3 mb-sm-0">
-                <input type="text" class="form-control" placeholder="Miejscowość" >
+                <input type="text" th:field="*{city}" class="form-control" placeholder="Miejscowość" >
             </div>
             <div class="col-sm-3">
-                <input type="text" class="form-control"  placeholder="Kod pocztowy" >
+                <input type="text" th:field="*{zipCode}" class="form-control"  placeholder="Kod pocztowy" >
             </div>
         </div>
     </div>
@@ -49,15 +49,15 @@
     <div class="details-box">
         <div class="row">
             <div class="offset-sm-1 col-sm-10 mb-3">
-                <input type="text" class="form-control" placeholder="Numer karty">
+                <input type="text" th:field="*{ccNumber}" class="form-control" placeholder="Numer karty">
             </div>
         </div>
         <div class="row">
             <div class="col-5 offset-sm-1 col-sm-4 ">
-                <input type="text" class="form-control" placeholder="Data ważności" >
+                <input type="text" th:field="*{ccExpiration}" class="form-control" placeholder="Data ważności" >
             </div>
             <div class="offset-3 col-4 offset-sm-2 col-sm-4">
-                <input type="text" class="form-control"  placeholder="Kod CVV" >
+                <input type="text" th:field="*{ccCVV}" class="form-control"  placeholder="Kod CVV" >
             </div>
         </div>
     </div>
