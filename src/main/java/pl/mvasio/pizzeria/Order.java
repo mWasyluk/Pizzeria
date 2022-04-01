@@ -4,11 +4,13 @@ import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.sql.Date;
 
 
 @Data
 public class Order {
-
+    private Long id;
+    private Date createDate;
     @NotBlank (message = "To pole jest wymagane.")
     private String name;
     @NotBlank (message = "To pole jest wymagane.")

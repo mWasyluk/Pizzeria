@@ -4,11 +4,13 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.sql.Date;
 import java.util.List;
 
 @Data
 public class Pizza {
-
+    private Long id;
+    private Date createDate;
     @Pattern(regexp = "^([a-zA-Z0-9_ ]{3,})$", message = "Nazwa powinna zawierać conajmniej trzy znaki.")
     private String name;
     @NotNull(message = "Wybierz rodzaj ciasta.")
