@@ -29,7 +29,7 @@ public class IngredientRepositoryImpl implements IngredientRepository{
     public Ingredient getById(String id) {
         return jdbc.queryForObject(
                 "select id, name, type from Ingredient where id=?",
-                Ingredient.class);
+                this::mapRowToIngredients, id);
     }
 
     @Override

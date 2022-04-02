@@ -1,7 +1,7 @@
 DELETE FROM Ingredient;
 DELETE FROM Pizza_Ingredients;
 DELETE FROM Pizza;
-DELETE FROM Pizza_Order_Pizzas;
+DELETE FROM Ordered_Pizza;
 DELETE FROM Pizza_Order;
 
 INSERT INTO Ingredient (id, name, type)

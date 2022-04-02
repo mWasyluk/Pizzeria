@@ -8,6 +8,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import pl.mvasio.pizzeria.data.IngredientRepository;
+import pl.mvasio.pizzeria.data.PizzaRepository;
 
 import javax.validation.Valid;
 import java.util.Collection;
@@ -18,18 +19,21 @@ import java.util.stream.Collectors;
 @Controller
 @Slf4j
 @RequestMapping("/design")
+@SessionAttributes("order")
 public class DesignPageController {
-    private IngredientRepository repo;
+    private IngredientRepository ingredientRepo;
+    private PizzaRepository pizzaRepo;
 
     @Autowired
-    public DesignPageController (IngredientRepository repo){
-        this.repo = repo;
+    public DesignPageController (IngredientRepository ingredientRepo, PizzaRepository pizzaRepo){
+        this.ingredientRepo = ingredientRepo;
+        this.pizzaRepo = pizzaRepo;
     }
 
     @ModelAttribute
     public void setModel (Model model) {
         List <Ingredient> ingredients = new LinkedList<>();
-        repo.getAll().forEach(ingredients::add);
+        ingredientRepo.getAll().forEach(ingredients::add);
 
         Ingredient.Type [] types = Ingredient.Type.values();
         model.addAttribute("types", types);
@@ -38,14 +42,23 @@ public class DesignPageController {
         }
     }
 
+    @ModelAttribute(name = "order")
+    public Order order() {
+        return new Order();
+    }
+
+    @ModelAttribute(name = "design")
+    public Pizza taco() {
+        return new Pizza();
+    }
+
     @GetMapping
     public String showDesignOption (Model model){
-        model.addAttribute("design", new Pizza());
         return "design.html";
     }
 
     @PostMapping
-    public String processDesign (@Valid @ModelAttribute("design") Pizza design, Errors errors, Model model){
+    public String processDesign (@Valid @ModelAttribute("design") Pizza design, Errors errors, @ModelAttribute("order") Order order){
         if (errors.hasErrors()) {
             for (ObjectError e : errors.getAllErrors())
                 log.info(e.toString());
@@ -53,6 +66,9 @@ public class DesignPageController {
         }
 
         log.info("Supplied design: " + design);
+        pizzaRepo.add(design);
+        order.addPizza(design);
+
         return "redirect:/orders/current";
     }
 

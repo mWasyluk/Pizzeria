@@ -15,13 +15,14 @@ CREATE TABLE IF NOT EXISTS Pizza(
     date TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS Pizza_Order_Pizzas(
+CREATE TABLE IF NOT EXISTS Ordered_Pizza(
     order_id BIGINT NOT NULL,
     pizza_id BIGINT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Pizza_Order(
     id IDENTITY NOT NULL,
+    date TIMESTAMP,
     name VARCHAR (60) NOT NULL,
     street VARCHAR (60) NOT NULL,
     city VARCHAR (60) NOT NULL,
@@ -36,7 +37,7 @@ ALTER TABLE Pizza_Ingredients
 ALTER TABLE Pizza_Ingredients 
     ADD FOREIGN KEY (ingredient_id) REFERENCES Ingredient (id);
 
-ALTER TABLE Pizza_Order_Pizzas
+ALTER TABLE Ordered_Pizza
     ADD FOREIGN KEY (order_id) REFERENCES Pizza_Order (id);
-ALTER TABLE Pizza_Order_Pizzas
+ALTER TABLE Ordered_Pizza
     ADD FOREIGN KEY (pizza_id) REFERENCES Pizza (id);

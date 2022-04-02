@@ -4,7 +4,9 @@ import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import java.sql.Date;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 
 @Data
@@ -25,4 +27,9 @@ public class Order {
     private String ccExpiration;
     @Pattern(regexp = "^([0-9]{3})$", message = "Niepoprawny numer CVV. Numer powinien składać się z trzech cyfr.")
     private String ccCVV;
+    private List<Pizza> pizzas = new LinkedList<>();
+
+    public boolean addPizza ( Pizza pizza ){
+        return this.pizzas.add(pizza);
+    }
 }
