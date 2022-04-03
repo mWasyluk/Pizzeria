@@ -34,8 +34,8 @@ public class UserRepositoryImpl implements UserRepository{
     public void addUser(User user) {
         @SuppressWarnings("unchecked")
         Map<String, Object> values = objectMapper.convertValue(user, Map.class);
-        log.info(values.toString());
         userInserter.execute(values);
+        jdbc.update("insert into authorities values (?, 'ROLE_USER')", user.getUsername());
     }
 
     @Override
