@@ -2,6 +2,8 @@ package pl.mvasio.pizzeria;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.security.core.userdetails.User;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
@@ -12,6 +14,7 @@ import java.util.List;
 @Data
 public class Order {
     private Long id;
+    private String username;
     private Date createDate;
     @NotBlank (message = "To pole jest wymagane.")
     private String name;

@@ -43,6 +43,7 @@ public class OrderRepositoryImpl implements OrderRepository{
     private long addOrder(Order order){
         Map <String, Object> values = new HashMap<>();
         values.put("date", order.getCreateDate());
+        values.put("username", order.getUsername());
         values.put("name", order.getName());
         values.put("street", order.getStreet());
         values.put("city", order.getCity());

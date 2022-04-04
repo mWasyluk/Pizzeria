@@ -19,6 +19,7 @@ import java.util.Collection;
 @AllArgsConstructor
 public class User implements UserDetails {
 
+    private Long id;
     @NonNull
     private String username;
     @NonNull
@@ -35,6 +36,7 @@ public class User implements UserDetails {
     private String city;
     @NonNull
     private String zipCode;
+    @NonNull
     private boolean enabled;
 
     @Override

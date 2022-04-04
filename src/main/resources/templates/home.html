@@ -10,7 +10,8 @@
 </head>
 <body class="bg-image">
     <img class="logo-img" th:src="@{/images/pizza.png}"/>
-    <h1 class="headline main-headline">Witaj w G&M Pizza!</h1>
+    <h1 th:unless="${param.logout}" class="headline main-headline">Witaj w G&M Pizza!</h1>
+    <h4 th:if="${param.logout}" class="headline">Pomyślnie wylogowano. Zapraszamy ponownie. :D</h4>
     <h2 class="headline co-main-headline">Tutaj stworzysz pizze jaką kochasz - sam zdecyduj co dziś zjesz. </h2>
     <div class="headline">
         <form method="get" action="/design">

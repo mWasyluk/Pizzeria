@@ -40,7 +40,7 @@ public class UserRepositoryImpl implements UserRepository{
 
     @Override
     public User getUser(String username) {
-        return jdbc.queryForObject("SELECT * FROM USER WHERE USERNAME = ?", this::mapRowToUser, username);
+        return jdbc.queryForObject("SELECT * FROM USERS WHERE USERNAME = ?", this::mapRowToUser, username);
     }
 
     @Override
