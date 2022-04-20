@@ -1,8 +1,7 @@
-package pl.mvasio.pizzeria;
+package pl.mvasio.pizzeria.model;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
-import org.springframework.security.core.userdetails.User;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -10,10 +9,14 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
+@Document(collection = "Orders")
 public class Order {
-    private Long id;
+    @Id
+    private String id;
     private String username;
     private Date createDate;
     @NotBlank (message = "To pole jest wymagane.")
@@ -24,7 +27,7 @@ public class Order {
     private String city;
     @Pattern(regexp = "^(([0-9]{2})-([0-9]{3}))$", message = "Niepoprawny kod pocztowy. Wymagany format to 00-000.")
     private String zipCode;
-    @CreditCardNumber (message = "Niepoprawny numer karty kredytowej.")
+//    @CreditCardNumber (message = "Niepoprawny numer karty kredytowej.")
     private String ccNumber;
     @Pattern(regexp = "^(0[1-9]|1[0-2])(\\/)([2-9][0-9])$", message = "Niepoprawna data ekspiracji. Wymagany format to MM/RR.")
     private String ccExpiration;

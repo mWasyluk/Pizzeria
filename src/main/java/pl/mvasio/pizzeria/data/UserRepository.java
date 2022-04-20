@@ -1,11 +1,10 @@
 package pl.mvasio.pizzeria.data;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import pl.mvasio.pizzeria.User;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+import pl.mvasio.pizzeria.model.User;
 
-public interface UserRepository {
-    void addUser(User user);
-    User getUser(String username);
-    User updateUser(String username);
-    User removeUser(String username);
+@Repository
+public interface UserRepository extends MongoRepository<User, String> {
+    User findByUsername(String userName);
 }

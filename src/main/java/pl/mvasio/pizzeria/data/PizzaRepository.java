@@ -1,7 +1,9 @@
 package pl.mvasio.pizzeria.data;
 
-import pl.mvasio.pizzeria.Pizza;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+import pl.mvasio.pizzeria.model.Pizza;
 
-public interface PizzaRepository {
-    Pizza add (Pizza pizza);
+@Repository
+public interface PizzaRepository extends MongoRepository<Pizza, String> {
 }

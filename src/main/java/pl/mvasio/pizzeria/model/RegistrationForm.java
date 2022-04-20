@@ -1,4 +1,4 @@
-package pl.mvasio.pizzeria;
+package pl.mvasio.pizzeria.model;
 
 import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;

@@ -1,11 +1,13 @@
-package pl.mvasio.pizzeria;
+package pl.mvasio.pizzeria.model;
 
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @RequiredArgsConstructor
+@Document(collection = "Ingredients")
 public class Ingredient {
 
     @NonNull

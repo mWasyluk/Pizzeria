@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import pl.mvasio.pizzeria.data.UserRepository;
+import pl.mvasio.pizzeria.model.User;
 
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private UserRepository userRepo;
+    private final UserRepository userRepo;
 
     @Autowired
     public UserDetailsServiceImpl (UserRepository userRepo){
@@ -19,7 +19,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails getUserDetails(String username) throws UsernameNotFoundException {
-        User user = userRepo.getUser(username);
+        User user = userRepo.findByUsername(username);
 
         if (user == null){
             throw new UsernameNotFoundException("Nie znaleziono użytkownika o takiej nazwie.");

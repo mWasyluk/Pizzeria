@@ -1,9 +1,9 @@
 package pl.mvasio.pizzeria.data;
 
-import pl.mvasio.pizzeria.Ingredient;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+import pl.mvasio.pizzeria.model.Ingredient;
 
-public interface IngredientRepository {
-    Iterable<Ingredient> getAll();
-    Ingredient getById(String id);
-    void add(Ingredient ingredient);
+@Repository
+public interface IngredientRepository extends MongoRepository<Ingredient, String> {
 }

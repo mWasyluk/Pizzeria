@@ -1,9 +1,11 @@
-package pl.mvasio.pizzeria;
+package pl.mvasio.pizzeria.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,9 +19,11 @@ import java.util.Collection;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
+@Document(collection = "Users")
 public class User implements UserDetails {
 
-    private Long id;
+    @Id
+    private String id;
     @NonNull
     private String username;
     @NonNull

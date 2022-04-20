@@ -1,4 +1,4 @@
-package pl.mvasio.pizzeria;
+package pl.mvasio.pizzeria.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
+import pl.mvasio.pizzeria.model.Ingredient;
+import pl.mvasio.pizzeria.model.Order;
+import pl.mvasio.pizzeria.model.Pizza;
 import pl.mvasio.pizzeria.data.IngredientRepository;
 import pl.mvasio.pizzeria.data.PizzaRepository;
 
@@ -32,8 +35,7 @@ public class DesignPageController {
 
     @ModelAttribute
     public void setModel (Model model) {
-        List <Ingredient> ingredients = new LinkedList<>();
-        ingredientRepo.getAll().forEach(ingredients::add);
+        List<Ingredient> ingredients = new LinkedList<>(ingredientRepo.findAll());
 
         Ingredient.Type [] types = Ingredient.Type.values();
         model.addAttribute("types", types);
@@ -66,7 +68,7 @@ public class DesignPageController {
         }
 
         log.info("Supplied design: " + design);
-        pizzaRepo.add(design);
+        pizzaRepo.save(design);
         order.addPizza(design);
 
         return "redirect:/orders/current";

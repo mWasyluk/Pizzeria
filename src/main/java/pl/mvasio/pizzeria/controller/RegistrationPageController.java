@@ -1,15 +1,13 @@
-package pl.mvasio.pizzeria;
+package pl.mvasio.pizzeria.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.support.SessionStatus;
-import pl.mvasio.pizzeria.data.OrderRepository;
+import pl.mvasio.pizzeria.model.RegistrationForm;
 import pl.mvasio.pizzeria.data.UserRepository;
 
 import javax.validation.Valid;
@@ -48,7 +46,7 @@ public class RegistrationPageController {
         }
 
         log.info("Supplied account: " + registrationForm);
-        userRepo.addUser(registrationForm.toUser(passwordEncoder));
+        userRepo.save(registrationForm.toUser(passwordEncoder));
         return "redirect:/";
     }
 }

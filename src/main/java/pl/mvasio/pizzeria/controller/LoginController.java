@@ -1,4 +1,4 @@
-package pl.mvasio.pizzeria;
+package pl.mvasio.pizzeria.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

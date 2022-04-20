@@ -63,7 +63,7 @@ INSERT INTO Ingredient (id, name, type)
     VALUES ('veg08', 'Rukola', 'VEGGIE');
 
 INSERT INTO USERs ( username, password, fullName, email, phone, street, city, zipcode, enabled)
-VALUES ('admin', '$2a$10$Lbv5p8JZ2SxJxUA7lmGpteQeQ5G1YRGPJwoeEuzXLVwnrassYI9cy', '133', '123', '123', '133','123', '123', 'true');
+VALUES ('admin', '$2a$10$BAGf19VPFoNQGXMVNwRb8uKsC/.Gdrj3RpKWyvkdmEcntBkkuibue', '133', '123', '123', '133','123', '123', 'true');
 
 INSERT INTO AUTHORITIES  ( username, authority)
 values ('admin', 'ROLE_USER');

@@ -1,0 +1,16 @@
+[
+  {
+    "_class": "pl.mvasio.pizzeria.model.Ingredient",
+    "id": "pie02",
+    "name": "Grube",
+    "type": {
+
+    }
+  },
+  {
+    "_class": "com.baeldung.entity.Fruit",
+    "name": "guava",
+    "color": "green",
+    "id": 2
+  }
+]
