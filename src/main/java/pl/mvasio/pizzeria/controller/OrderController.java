@@ -3,7 +3,6 @@ package pl.mvasio.pizzeria.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import pl.mvasio.pizzeria.model.Order;
 import pl.mvasio.pizzeria.data.OrderRepository;
-import pl.mvasio.pizzeria.data.UserRepository;
+import pl.mvasio.pizzeria.model.User;
 
 import javax.validation.Valid;
 
@@ -22,9 +21,7 @@ import javax.validation.Valid;
 @SessionAttributes("order")
 public class OrderController {
 
-    private OrderRepository orderRepo;
-    @Autowired
-    private UserRepository userRepository;
+    private final OrderRepository orderRepo;
 
     @Autowired
     public OrderController (OrderRepository orderRepo){

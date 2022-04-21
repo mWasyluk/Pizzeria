@@ -1,9 +1,6 @@
 package pl.mvasio.pizzeria.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,6 +16,7 @@ import java.util.Collection;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor (access = AccessLevel.PRIVATE, force = true)
 @Document(collection = "Users")
 public class User implements UserDetails {
 
