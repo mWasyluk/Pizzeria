@@ -19,7 +19,7 @@ public class MongoPopulator implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         List<Ingredient> ingredientList = Arrays.asList(
                 new Ingredient("pie01", "Tradycyjne", Ingredient.Type.PIE),
                 new Ingredient("pie02", "Grube", Ingredient.Type.PIE),
@@ -27,9 +27,9 @@ public class MongoPopulator implements CommandLineRunner {
                 new Ingredient("siz01", "Mała (24cm)", Ingredient.Type.SIZE),
                 new Ingredient("siz02", "Średnia (30cm)", Ingredient.Type.SIZE),
                 new Ingredient("siz03", "Duża (42cm)", Ingredient.Type.SIZE),
-                new Ingredient("sau01", "Pomidorowy", Ingredient.Type.SAUCE),
-                new Ingredient("sau02", "Czosnkowy", Ingredient.Type.SAUCE),
-                new Ingredient("sau03", "BBQ", Ingredient.Type.SAUCE),
+                new Ingredient("sau01", "Sos pomidorowy", Ingredient.Type.SAUCE),
+                new Ingredient("sau02", "Sos czosnkowy", Ingredient.Type.SAUCE),
+                new Ingredient("sau03", "Sos BBQ", Ingredient.Type.SAUCE),
                 new Ingredient("che01", "Cheedar", Ingredient.Type.CHEESE),
                 new Ingredient("che02", "Ementaler", Ingredient.Type.CHEESE),
                 new Ingredient("mea01", "Kurczak", Ingredient.Type.MEAT),

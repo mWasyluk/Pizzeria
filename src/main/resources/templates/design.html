@@ -98,8 +98,8 @@
     <div class="conatiner">
         <div class="row justify-content-center align-items-center name-section">
             <div class="col-md-6 mb-3 input-text" >
-                <input type="text" class="form-control" name="name" th:field="*{name}" placeholder="Moja ulubiona pizzunia">
-                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid-data">
+                <input type="text" class="form-control" name="name" th:field="*{pizzaName}" placeholder="Moja ulubiona pizzunia">
+                <p th:if="${#fields.hasErrors('pizzaName')}" th:errors="*{pizzaName}" class="invalid-data">
                     ERROR OCCURS</p>
             </div>
             <div class="col-md-6">

@@ -6,4 +6,5 @@ import pl.mvasio.pizzeria.model.Ingredient;
 
 @Repository
 public interface IngredientRepository extends MongoRepository<Ingredient, String> {
+    Ingredient findByType(Ingredient.Type type);
 }

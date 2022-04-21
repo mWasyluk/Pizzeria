@@ -17,8 +17,11 @@ public class Ingredient {
     @NonNull
     private Type type;
 
-
     public enum Type {
         PIE, SIZE, SAUCE, CHEESE, MEAT, VEGGIE
+    }
+
+    public static boolean isSauce(Ingredient ingredient){
+        return ingredient.getType().equals(Type.SAUCE);
     }
 }

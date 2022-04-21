@@ -1,6 +1,6 @@
 package pl.mvasio.pizzeria.model;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,13 +11,16 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Document(collection = "Pizzas")
 public class Pizza {
     @Id
     private String id;
     private Date createDate;
     @Pattern(regexp = "^([a-zA-Z0-9_ ]{3,})$", message = "Nazwa powinna zawierać conajmniej trzy znaki.")
-    private String name;
+    private String pizzaName;
     @NotNull(message = "Wybierz rodzaj ciasta.")
     private String pie;
     @NotNull(message = "Wybierz rozmiar.")

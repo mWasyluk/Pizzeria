@@ -107,4 +107,30 @@ body {
 .info-text {
     color: #fff27d;
     margin: 0;
+    font-size: 18px;
+}
+
+.order-box {
+    background-color: #28218f;
+    text-align: center;
+    margin: 20px 15px 20px 15px;
+    padding: 15px 40px 15px 40px;
+    color: white;
+    font-family: 'Engine';
+    box-shadow: 0px 5px 15px black;
+    text-shadow: 0px 5px 5px black;
+    border-radius: 20px;
+    font-size: 18px;
+}
+
+.pizza-box {
+    background-color: #2e25b8;
+    text-align: center;
+    width: fit-content;
+    margin: 20px auto 20px auto;
+    padding: 15px 20px 15px 20px;
+    font-family: 'Engine';
+    box-shadow: 0px 5px 10px black;
+    text-shadow: 0px 5px 5px black;
+    border-radius: 20px;
 }
