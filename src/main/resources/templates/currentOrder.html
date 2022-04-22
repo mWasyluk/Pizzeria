@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row justify-content-center align-items-center ">
         <div class="col-md-3">
-            <img class="logo-img img-fluid" th:src="@{/images/pizza.png}">
+            <a href="/"> <img class="logo-img img-fluid" th:src="@{/images/pizza.png}"></a>
         </div>
         <div class="col-md-9">
             <h2 class="headline main-headline">Podsumowanie zamówienia</h2>
@@ -25,10 +25,7 @@
     <div class="row justify-content-center align-items-center order-box ">
 
         <p class="co-main-headline">Wybrane pizze:</p>
-<!--        <div class="row">-->
-<!--            <p class="col-lg-4">Imię i nazwisko: <span style="font-size: 30px;" th:text="*{name}">CIASTO</span></p>-->
-<!--            <p class="col-lg-4">Data zamówienia: <span style="font-size: 30px;" th:text="*{#calendars.format(createDate,'HH:mm, dd MMMM yyyy')}">CIASTO</span> </p>-->
-<!--            <p class="col-lg-4">Adres dostawy: <span style="font-size: 30px;" th:text="*{street} + ', ' + *{city}">CIASTO</span></p>-->
+
         <div class="row">
             <div class="pizza-box justify-content-around" th:each="pizza : *{pizzas}">
                 <h6 class="box-headline">Szczegóły pizzy:</h6>

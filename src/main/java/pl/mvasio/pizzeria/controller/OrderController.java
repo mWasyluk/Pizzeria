@@ -16,6 +16,7 @@ import pl.mvasio.pizzeria.model.User;
 
 import javax.validation.Valid;
 import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -30,6 +31,11 @@ public class OrderController {
     public OrderController (OrderRepository orderRepo, IngredientRepository ingredientRepo){
         this.orderRepo = orderRepo;
         this.ingredientRepo = ingredientRepo;
+    }
+
+    @ModelAttribute("currentUsername")
+    public String currentUserName(Authentication authentication) {
+        return authentication.getName();
     }
 
     @GetMapping("/form")
@@ -50,8 +56,8 @@ public class OrderController {
         order.setUsername(user.getUsername());
         order.setCreateDate(new Date());
         orderRepo.save(order);
-//        sessionStatus.setComplete();
-        return "redirect:/orders/current";
+        sessionStatus.setComplete();
+        return "redirect:/orders";
     }
 
     @ModelAttribute (name = "ingredientRepo")
@@ -59,9 +65,19 @@ public class OrderController {
         return ingredientRepo;
     }
 
+    @ModelAttribute (name = "userOrders")
+    public List<Order> getUserOrders(@ModelAttribute("currentUsername") String username){
+        return orderRepo.findAllByUsernameOrderByCreateDateDesc(username);
+    }
+
     @GetMapping("/current")
     public String getCurrentOrderDetails(){
         return "currentOrder.html";
+    }
+
+    @GetMapping
+    public String getUserOrders(){
+        return "userOrders.html";
     }
 
 }
