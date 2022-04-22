@@ -8,6 +8,30 @@ body {
     background-color: #aab8d1ff
 }
 
+.nav-link:hover {
+    background-color: #525252 !important
+}
+
+.nav-link .fa {
+    transition: all 1s
+}
+
+.nav-link:hover .fa {
+    transform: rotate(360deg)
+}
+
+aside{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 250px;
+}
+
+.center {
+    margin-left: 250px;
+}
+
 .logo-img {
     max-height: 250px;
     border-radius: 100px;
