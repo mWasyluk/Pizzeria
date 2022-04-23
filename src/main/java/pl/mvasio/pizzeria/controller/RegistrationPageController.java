@@ -38,14 +38,11 @@ public class RegistrationPageController {
     }
 
     @PostMapping
-    public String processRegistration (@Valid @ModelAttribute("registrationForm") RegistrationForm registrationForm , Errors errors){
+    public String processRegistration (@Valid @ModelAttribute("registrationForm") RegistrationForm registrationForm,
+                                       Errors errors){
         if (errors.hasErrors()) {
-            for (ObjectError e : errors.getAllErrors())
-                log.info(e.toString());
             return "registration.html";
         }
-
-        log.info("Supplied account: " + registrationForm);
         userRepo.save(registrationForm.toUser(passwordEncoder));
         return "redirect:/";
     }

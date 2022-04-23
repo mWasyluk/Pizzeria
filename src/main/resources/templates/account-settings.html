@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org" lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link th:href="@{/styles/style.css}" rel="stylesheet" />
+    <title>G&M Pizza</title>
+</head>
+<body class="bg-image">
+
+<div th:insert="static-template :: aside-menu"></div>
+
+<div class="center">
+    <form method="post" th:object="${newUserData}">
+        <h1 class="headline">Zmiana danych</h1>
+        <h3 class="headline">Wprowadź potrzebne zmiany w poniższych polach, a następnie zatwierdź
+            je przyciskiem znajdującym się na dole. </h3>
+        <div class="details-box">
+            <div class="mb-3">Nazwa użytkownika:
+                <input disabled="disabled" type="text" class="box-headline" th:field="*{username}">
+                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="invalid-data">
+                    ERROR OCCURS</p>
+            </div>
+            <div class="mb-3">Imię i nazwisko:
+                <input class="box-headline" th:field="*{fullName}">
+                <p th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" class="invalid-data">
+                    ERROR OCCURS</p>
+            </div>
+            <div class="mb-3">E-mail:
+                <input class="box-headline" th:field="*{email}">
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="invalid-data">
+                    ERROR OCCURS</p>
+            </div>
+            <div class="mb-3">Nr. telefonu:
+                <input class="box-headline" th:field="*{phone}">
+                <p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="invalid-data">
+                    ERROR OCCURS</p>
+            </div>
+            <div class="mb-3">Ulica i nr. domu:
+                <input class="box-headline" th:field="*{street}">
+                <p th:if="${#fields.hasErrors('street')}" th:errors="*{street}" class="invalid-data">
+                    ERROR OCCURS</p>
+            </div>
+            <div class="mb-3">Miasto:
+                <input class="box-headline" th:field="*{city}">
+                <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="invalid-data">
+                    ERROR OCCURS</p>
+            </div>
+            <div>Kod pocztowy:
+                <input class="box-headline" th:field="*{zipCode}">
+                <p th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}" class="invalid-data">
+                    ERROR OCCURS</p>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <button type="submit" class="reg-button">Zmień dane</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

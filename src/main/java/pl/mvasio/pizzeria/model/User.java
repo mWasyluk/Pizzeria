@@ -16,10 +16,9 @@ import java.util.Collection;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor (access = AccessLevel.PRIVATE, force = true)
+@NoArgsConstructor ()
 @Document(collection = "Users")
 public class User implements UserDetails {
-
     @Id
     private String id;
     @NonNull

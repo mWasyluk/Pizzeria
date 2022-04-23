@@ -43,11 +43,6 @@
                 <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="invalid-data">
                 ERROR OCCURS</p>
             </div>
-    <!--        <div class="align-items-center offset-1 col-10 mb-3">-->
-    <!--            <input type="password" class="form-control" th:field="*{password}" placeholder="Potwierdź hasło">-->
-    <!--            <p th:if="${not registrationForm.isPasswordConfirmed()}" class="invalid-data">-->
-    <!--                Hasła muszą być zgodne.</p>-->
-    <!--        </div>-->
             <div class="align-items-center offset-1 col-10 mb-3">
                 <input type="text" class="form-control" th:field="*{fullName}" placeholder="Imię i nazwisko">
                 <p th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" class="invalid-data">

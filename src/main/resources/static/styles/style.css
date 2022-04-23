@@ -5,19 +5,19 @@
 
 body {
     background-image: url('/images/pizzaparty.gif');
-    background-color: #aab8d1ff
+    font-family: 'Engine';
 }
 
 .nav-link:hover {
-    background-color: #525252 !important
+    background-color: #525252;
 }
 
 .nav-link .fa {
-    transition: all 1s
+    transition: all 1s;
 }
 
 .nav-link:hover .fa {
-    transform: rotate(360deg)
+    transform: rotate(360deg);
 }
 
 aside{
@@ -26,31 +26,41 @@ aside{
     top: 0;
     left: 0;
     width: 250px;
+    font-family: 'Arial', 'Helvetica', sans-serif;
 }
 
 .center {
     margin-left: 250px;
 }
 
+.selection-box, .details-box, .name-section, .order-box, .pizza-box, .base-box, .reg-button{
+    background-color: #28218f;
+    text-align: center;
+    box-shadow: 0px 5px 15px black;
+    text-shadow: 0px 5px 5px black;
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+}
+
 .logo-img {
     max-height: 250px;
     border-radius: 100px;
-    margin: 10px auto 20px;
+    margin: 10px auto 20px auto;
     display: block;
     background-color: #28218f;
     box-shadow: 0px 5px 25px black;
 }
 
 .headline {
+    border-radius: 20px;
+    background-color: #28218f;
+    box-shadow: 0px 5px 25px black;
     width: fit-content;
     text-align: center;
     padding: 20px 30px;
     color: white;
-    box-shadow: 0px 5px 25px black;
     text-shadow: 0px 5px 25px black;
-    border-radius: 20px;
-    background-color: #28218f;
-    font-family: 'Engine';
     margin: 15px auto 15px auto;
 }
 
@@ -62,30 +72,16 @@ aside{
     font-size: 32px;
 }
 
-
 .selection-box {
     width: fit-content;
-    background-color: #28218f;
-    text-align: center;
     margin: 20px 15px 20px 15px;
     padding: 15px 40px 15px 40px;
-    color: white;
-    font-family: 'Engine';
-    box-shadow: 0px 5px 15px black;
-    text-shadow: 0px 5px 5px black;
-    border-radius: 20px;
     font-size: 18px;
 }
 
 .details-box {
-    background-color: #28218f;
-    text-align: center;
     margin: 20px auto 20px auto;
     padding: 15px 30px 15px 30px;
-    font-family: 'Engine';
-    box-shadow: 0px 5px 15px black;
-    text-shadow: 0px 5px 5px black;
-    border-radius: 20px;
     width: 80%;
 }
 
@@ -99,15 +95,8 @@ aside{
 
 .name-section {
     width: 60%;
-    background-color: #28218f;
-    text-align: center;
     margin: 15px auto 15px auto;
     padding: 15px 40px 15px 40px;
-    color: white;
-    font-family: 'Engine';
-    box-shadow: 0px 5px 15px black;
-    text-shadow: 0px 5px 5px black;
-    border-radius: 20px;
 }
 
 .input-text{
@@ -120,7 +109,11 @@ aside{
 
 .reg-button{
     font-size: 18px;
-    padding: 4px 10px 4px 10px;
+    padding: 8px 14px 8px 14px;
+}
+
+.reg-button:hover {
+    background-color: #3721b0;
 }
 
 .invalid-data{
@@ -135,26 +128,20 @@ aside{
 }
 
 .order-box {
-    background-color: #28218f;
-    text-align: center;
     margin: 20px 15px 20px 15px;
     padding: 15px 40px 15px 40px;
-    color: white;
-    font-family: 'Engine';
-    box-shadow: 0px 5px 15px black;
-    text-shadow: 0px 5px 5px black;
-    border-radius: 20px;
     font-size: 18px;
 }
 
 .pizza-box {
+    box-shadow: 0px 5px 10px black;
     background-color: #2e25b8;
-    text-align: center;
     width: fit-content;
     margin: 20px auto 20px auto;
     padding: 15px 20px 15px 20px;
-    font-family: 'Engine';
-    box-shadow: 0px 5px 10px black;
-    text-shadow: 0px 5px 5px black;
-    border-radius: 20px;
+}
+
+.text-box{
+    margin: 20px 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
 }
