@@ -71,7 +71,15 @@ public class OrderController {
     }
 
     @GetMapping("/current")
-    public String getCurrentOrderDetails(){
+    public String getCurrentOrderDetails(Model model){
+        if (model.getAttribute("order") == null)
+            return "redirect:/design";
+        return "currentOrder.html";
+    }
+
+    @GetMapping ("/current/reset")
+    public String deletePizzasFromCurrentOrder(Model model){
+        model.addAttribute("order", new Order());
         return "currentOrder.html";
     }
 

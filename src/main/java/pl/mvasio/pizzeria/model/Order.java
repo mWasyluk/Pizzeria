@@ -27,7 +27,7 @@ public class Order {
     private String city;
     @Pattern(regexp = "^(([0-9]{2})-([0-9]{3}))$", message = "Niepoprawny kod pocztowy. Wymagany format to 00-000.")
     private String zipCode;
-//    @CreditCardNumber (message = "Niepoprawny numer karty kredytowej.")
+    @CreditCardNumber (message = "Niepoprawny numer karty kredytowej.")
     private String ccNumber;
     @Pattern(regexp = "^(0[1-9]|1[0-2])(\\/)([2-9][0-9])$", message = "Niepoprawna data ekspiracji. Wymagany format to MM/RR.")
     private String ccExpiration;
@@ -37,5 +37,16 @@ public class Order {
 
     public boolean addPizza ( Pizza pizza ){
         return this.pizzas.add(pizza);
+    }
+    public void removePizzaById(String id ){
+//        pizzas.parallelStream().filter(pizza -> pizza.getId().equals(id)).findAny().map(pizza -> pizzas.remove(pizza));
+        pizzas.forEach((p)->{
+            if (p.getId().equals(id)) pizzas.remove(p);
+            System.out.println(p + " removed");
+        });
+    }
+
+    public void removeAllPizzas(){
+        pizzas.clear();
     }
 }
