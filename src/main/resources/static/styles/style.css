@@ -7,6 +7,14 @@ body {
     background-image: url('/images/pizzaparty.gif');
     font-family: 'Engine';
 }
+.option{
+    border-radius: 15px;
+    padding: 4px 14px 4px 14px;
+}
+
+.option:hover {
+    background-color: #3721b0;
+}
 
 .nav-link:hover {
     background-color: #525252;
@@ -33,6 +41,10 @@ aside{
     margin-left: 250px;
 }
 
+.ctr{
+    text-align: center;
+}
+
 .selection-box, .details-box, .name-section, .order-box, .pizza-box, .base-box, .reg-button{
     background-color: #28218f;
     text-align: center;
@@ -41,6 +53,16 @@ aside{
     border-radius: 20px;
     color: white;
     font-size: 18px;
+}
+
+.base-box{
+    width: fit-content;
+    padding: 5px 30px 5px 30px;
+    margin: 15px auto 15px auto;
+}
+
+.bg-box:has (> .base-box) {
+    opacity:1;
 }
 
 .logo-img {
@@ -108,8 +130,22 @@ aside{
 }
 
 .reg-button{
+    width: auto;
     font-size: 18px;
-    padding: 8px 14px 8px 14px;
+    margin: 10px auto 10px auto;
+    width: fit-content;
+    padding: 6px 32px 6px 32px;
+}
+.inside-button{
+    box-shadow: 0px 0px 0px;
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+}
+
+.big-button{
+    font-size: 24px;
+    padding: 10px 42px 10px 42px;
 }
 
 .reg-button:hover {

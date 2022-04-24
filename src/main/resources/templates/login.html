@@ -29,14 +29,14 @@
                     <input type="password" class="form-control" name="password" placeholder="Hasło">
                 </div>
             </div>
-            <div class="container headline">
-                <div class="align-items-center mb-3">
-                    <button type="submit" class="btn btn-light log-button">Zaloguj się</button>
-                </div>
-                <p class="info-text">Nie masz jeszcze konta?</p>
-                <div class="align-items-center">
-                    <a href="/registration" class="btn btn-light reg-button">Zarejestruj się</a>
-                </div>
+            <div class="ctr">
+                <button type="submit" class="reg-button big-button">Zaloguj się</button>
+            </div>
+        </form>
+        <form th:action="@{/registration}" method="get">
+            <div class="ctr base-box">
+                <p class="info-text mb-2">Nie masz jeszcze konta?</p>
+                <button type="submit" class="option reg-button inside-button">Zarejestruj się</button>
             </div>
         </form>
     </div>

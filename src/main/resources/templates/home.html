@@ -12,9 +12,9 @@
         <h1 th:unless="${param.logout}" class="headline main-headline">Witaj w G&M Pizza!</h1>
         <h4 th:if="${param.logout}" class="headline">Pomyślnie wylogowano. Zapraszamy ponownie. :D</h4>
         <h2 class="headline co-main-headline">Tutaj stworzysz pizze jaką kochasz - sam zdecyduj co dziś zjesz. </h2>
-        <div class="headline">
+        <div class="ctr">
             <form method="get" action="/design">
-                <button type="submit" class="btn btn-light confirm-button">Przejdź do wyboru składników -></button>
+                <button type="submit" class="reg-button big-button">Przejdź do wyboru składników <i class="fa-solid fa-circle-arrow-right"></i></button>
             </form>
         </div>
     </div>`

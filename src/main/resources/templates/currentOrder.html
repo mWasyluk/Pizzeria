@@ -37,24 +37,24 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div th:if="*{pizzas.size > 0}" style="text-align: center;">
-                <form method="get" th:action="@{/orders/current/reset}" >
-                    <input type="submit" class="reg-button" value="Usuń wszytskie pizze">
-                </form>
+                <div th:if="*{pizzas.size > 0}">
+                    <form method="get" th:action="@{/orders/current/reset}" >
+                        <input type="submit" class="reg-button" value="Usuń wszytskie pizze">
+                    </form>
+                </div>
             </div>
         </div>
         <div class="container">
             <div class=" row justify-content-around ">
                 <div class="headline col-6">
                     <form method="get" th:action="@{/design}" >
-                        <p>Chcesz dodać <span th:text="${order.pizzas.size > 0 ? 'kolejną ' : ''}"> </span>pizze do tego zamówienia?</p>
+                        <p class="info-text">Chcesz dodać <span th:text="${order.pizzas.size > 0 ? 'kolejną ' : ''}"> </span>pizze do tego zamówienia?</p>
                         <input  type="submit" class="reg-button" value="Stwórz pizzę">
                     </form>
                 </div>
                 <div th:if="${order.pizzas.size > 0}" class="headline col-6">
                     <form method="get" th:action="@{/orders/form}" >
-                        <p>To już wszystko?</p>
+                        <p class="info-text">To już wszystko?</p>
                         <input  type="submit" class="reg-button" value="Przejdź do płatności">
                     </form>
                 </div>
