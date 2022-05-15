@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="row justify-content-center align-items-center order-box " th:each="order : ${userOrders}">
+            <div class="row justify-content-center align-items-center order-box " th:each="order : ${pagedOrders}">
                 <div class="row">
                     <div class="row">
                         <p class="col-lg-4">Imię i nazwisko: <span style="font-size: 30px;" th:text="${order.name}">CIASTO</span></p>
@@ -40,6 +40,30 @@
                     </div>
                 </div>
             </div>
+            <nav aria-label="Order pages navigation">
+                <ul th:if="${pageNumber == 1}" class="pagination pagination-lg justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">Pierwsza</a></li>
+                    <li class="page-item active"><a class="page-link" th:text="${pageNumber}">pageNr</a></li>
+                    <li th:if="${maxPageNumber > 1}" class="page-item"><a class="page-link" th:href="@{'/orders?page=' + ${pageNumber + 1}}" th:text="${pageNumber + 1}">pageNr</a></li>
+                    <li th:if="${maxPageNumber > 2}" class="page-item"><a class="page-link" th:href="@{'/orders?page=' + ${pageNumber + 2}}" th:text="${pageNumber + 2}">pageNr</a></li>
+                    <li th:if="${maxPageNumber > 1}" class="page-item"><a class="page-link" th:href="@{'/orders?page=' + ${maxPageNumber}}">Ostatnia</a></li>
+                    <li th:if="${!(maxPageNumber > 1)}" class="page-item"><a class="page-link" href="#">Ostatnia</a></li>
+                </ul>
+                <ul th:if="${pageNumber > 1 && pageNumber < maxPageNumber}" class="pagination pagination-lg justify-content-center">
+                    <li class="page-item"><a class="page-link" th:href="@{/orders}">Pierwsza</a></li>
+                    <li class="page-item"><a class="page-link" th:href="@{'/orders?page=' + ${pageNumber - 1}}" th:text="${pageNumber - 1}">pageNr</a></li>
+                    <li class="page-item active"><a class="page-link" th:text="${pageNumber}">pageNr</a></li>
+                    <li th:if="${maxPageNumber > 2}" class="page-item"><a class="page-link" th:href="@{'/orders?page=' + ${pageNumber + 1}}" th:text="${pageNumber + 1}">pageNr</a></li>
+                    <li class="page-item"><a class="page-link" th:href="@{'/orders?page=' + ${maxPageNumber}}">Ostatnia</a></li>
+                </ul>
+                <ul th:if="${pageNumber >= maxPageNumber && maxPageNumber > 1}" class="pagination pagination-lg justify-content-center">
+                    <li class="page-item"><a class="page-link" th:href="@{/orders}">Pierwsza</a></li>
+                    <li th:if="${maxPageNumber > 2}" class="page-item"><a class="page-link" th:href="@{'/orders?page=' + ${pageNumber - 2}}" th:text="${pageNumber - 2}">pageNr</a></li>
+                    <li th:if="${maxPageNumber > 1}" class="page-item"><a class="page-link" th:href="@{'/orders?page=' + ${pageNumber - 1}}" th:text="${pageNumber - 1}">pageNr</a></li>
+                    <li class="page-item active"><a class="page-link" th:text="${pageNumber}">pageNr</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Ostatnia</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
 </body>
