@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <nav aria-label="Order pages navigation">
+            <nav th:if="${pagedOrders.size() > 0}" aria-label="Order pages navigation">
                 <ul th:if="${pageNumber == 1}" class="pagination pagination-lg justify-content-center">
                     <li class="page-item"><a class="page-link" href="#">Pierwsza</a></li>
                     <li class="page-item active"><a class="page-link" th:text="${pageNumber}">pageNr</a></li>
@@ -64,6 +64,15 @@
                     <li class="page-item"><a class="page-link" href="#">Ostatnia</a></li>
                 </ul>
             </nav>
+            <div th:unless="${pagedOrders.size() > 0}">
+                <p class="order-box"><span class=" co-main-headline">Historia twoich zamówień jest jeszcze pusta</span></p>
+                <div class="headline">
+                    <form method="get" th:action="@{/design}">
+                        <p class="info-text">Zamów swoją ulubioną pizze:</p>
+                        <input  type="submit" class="reg-button" value="Stwórz pizzę">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </body>

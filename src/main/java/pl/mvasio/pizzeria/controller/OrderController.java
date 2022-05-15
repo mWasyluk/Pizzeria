@@ -90,7 +90,7 @@ public class OrderController {
                                 @RequestParam(required = false, name = "page", defaultValue = "1") long page,
                                 Model model){
         long ordersQuantity = orderRepo.countByUsername(username);
-        long maxPageNumber = ordersQuantity % pageSize == 0 ? ordersQuantity / pageSize : ordersQuantity / pageSize + 1;
+        long maxPageNumber = ordersQuantity % pageSize == 0 && ordersQuantity > 0 ? ordersQuantity / pageSize : ordersQuantity / pageSize + 1;
         model.addAttribute("maxPageNumber", maxPageNumber);
 
         long fixedPage = page > maxPageNumber ? maxPageNumber : page;
