@@ -4,18 +4,21 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.*;
-import pl.mvasio.pizzeria.model.RegistrationForm;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import pl.mvasio.pizzeria.data.UserRepository;
+import pl.mvasio.pizzeria.model.RegistrationForm;
+import pl.mvasio.pizzeria.model.User;
 
 import javax.validation.Valid;
 
 @Controller
 @Slf4j
 @RequestMapping("/registration")
-@SessionAttributes("registrationForm")
 public class RegistrationPageController {
 
     private UserRepository userRepo;
@@ -38,8 +41,13 @@ public class RegistrationPageController {
     }
 
     @PostMapping
-    public String processRegistration (@Valid @ModelAttribute("registrationForm") RegistrationForm registrationForm,
-                                       Errors errors){
+    public String processRegistration (@Valid RegistrationForm registrationForm,
+                                       Errors errors, Model model){
+        User byUsername = userRepo.findByUsername(registrationForm.getUsername());
+        if (byUsername != null) {
+            model.addAttribute("usernameInUse", true);
+            return "registration.html";
+        }
         if (errors.hasErrors()) {
             return "registration.html";
         }

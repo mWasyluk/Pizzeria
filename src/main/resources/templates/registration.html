@@ -24,6 +24,8 @@
                     <input type="text" class="form-control" th:field="*{username}" placeholder="Nazwa użytkownika">
                     <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="invalid-data">
                         ERROR OCCURS</p>
+                    <p th:if="${usernameInUse == true}" class="invalid-data">
+                        Taka nazwa użytkownika już istnieje. Użyj innej lub przejdź do strony logowania. </p>
                 </div>
                 <div class="align-items-center offset-1 col-10 mb-3">
                     <input type="text" class="form-control" th:field="*{email}" placeholder="E-mail">
